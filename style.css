@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Scientific Number Checker</h2>
+        <p>Masukkan angka dalam format ilmiah:</p>
+        
+        <input type="text" id="inputNumber" placeholder="Misal: 1.23e+3">
+        <button onclick="checkNumber()">Cek</button>
+        
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function checkNumber() {
+            let input = document.getElementById("inputNumber").value.trim();
+            let scientificRegex = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
+            let message = document.getElementById("message");
+
+            if (scientificRegex.test(input)) {
+                message.innerText = "Yes, it is a number";
+                message.className = "valid";
+            } else {
+                message.innerText = "No, it is not a number";
+                message.className = "invalid";
+            }
+        }
+    </script>
+
+</body>
+</html>
